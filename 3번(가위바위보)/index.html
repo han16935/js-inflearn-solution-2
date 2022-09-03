@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const rcp = function(count, player1Arr, player2Arr){
+          for(let i=0;i<count;i++){
+            if(player1Arr[i]===player2Arr[i]){
+                console.log("D");
+            }
+
+            else if((player1Arr[i]===1 && player2Arr[i]===3) || (player1Arr[i]===2 && player2Arr[i]===1) || 
+                    (player1Arr[i]===3 && player2Arr[i]===2)){
+                console.log("A");
+            }
+
+            else{
+                console.log("B");
+            }
+          } 
+        };
+
+        const player1Arr = [2,3,3,1,3];
+        const player2Arr = [1,1,2,2,3];
+        rcp(5, player1Arr, player2Arr);
+    </script>
+</body>
+</html>

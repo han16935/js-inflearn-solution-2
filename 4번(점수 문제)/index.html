@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const printOXScore = function(count, ...solutionArr){
+           let score = 0;
+           let continueCount = 0;
+           for(let i=0;i<solutionArr.length;i++){
+              if(solutionArr[i]===1){
+                if(continueCount===0){
+                    score++;
+                    continueCount++;
+                }
+
+                else{
+                    score+=continueCount+1;
+                    continueCount++;
+                }
+              }
+
+              else{
+                continueCount=0;
+              }
+           }
+           console.log(score);
+        };
+        printOXScore(10, 1, 0, 1,1,1,0,0,1,1,0);
+    </script>
+</body>
+</html>

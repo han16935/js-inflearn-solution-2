@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        function validAnagram(origin, second){
+           if(origin.length!==second.length){
+             return false; 
+            }
+   
+   else{
+       const originObj = {};
+       for(let i=0;i<origin.length;i++){
+           let currentStr = origin.charAt(i);
+           if(!originObj.currentStr){
+               originObj.currentStr = 1;
+           }
+           
+           else{
+               originObj.currentStr++;
+           }
+           
+       }   
+       const secondObj = {};
+       for(let i=0;i<second.length;i++){
+           let secondStr = second.charAt(i);
+           if(!secondObj.secondStr){
+               secondObj.secondStr = 1;
+           }
+           
+           else{
+               secondObj.secondStr++;
+           }
+       }
+       
+       
+       return (JSON.stringify(originObj) === 
+       JSON.stringify(secondObj));
+   }
+   console.log(validAnagram('abc', 'cba'));   
+}
+    </script>
+</body>
+</html>
