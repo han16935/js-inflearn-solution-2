@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const findMountain = function(n, arr){
+      //     let answer=0;
+      //     for(let i=0;i<n;i++){
+      //         for(let j=0;j<n;j++){
+      //             let position = arr[i][j];
+      //             // let top = arr[i-1][j];
+      //             // let left = arr[i][j-1];
+      //             // let bottom = arr[i+1][j];
+      //             // let right = arr[i][j+1];
+      //             if(i===0 && j!==0){
+      //               // top 제외 후 비교
+
+      //             }
+      //         }
+      //     }
+      // }
+
+      const findMountain = function (n, arr) {
+        let answer = 0;
+        let flag;
+        const dx = [-1, 0, 1, 0];
+        const dy = [0, 1, 0, -1];
+        for (let x = 0; x < n; x++) {
+          for (let y = 0; y < n; y++) {
+            flag = 1;
+            for (let k = 0; k < 4; k++) {
+              if (
+                0 < x + dx &&
+                x + dx < n &&
+                0 < y + dy &&
+                y + dy < n &&
+                arr[dx][dy] >= arr[x][y]
+              ) {
+                flag = 0;
+                break;
+              }
+            }
+            if (flag === 1) {
+              answer++;
+            }
+          }
+        }
+
+        console.log(answer);
+      };
+
+      findMountain(5, [
+        [5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2],
+      ]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //     const findRowSum = function(n, arr){
+      //         // 가로 줄의 합 구하기
+      //         let max = 0;
+      //         let sum = 0;
+
+      //         for(let j=0;j<n;j++){
+      //             for(let k=0;k<n;k++){
+      //                 sum+=arr[j][k];
+      //             }
+      //             if(max<sum){
+      //                 max=sum;
+      //             }
+      //             sum=0;
+      //         }
+      //         return max;
+      //     }
+
+      //     const findColSum = function(n, arr){
+      //         // 세로 줄의 합 구하기
+      //         let max = 0;
+      //         let sum = 0;
+
+      //         for(let j=0;j<n;j++){
+      //           for(let k=0;k<n;k++){
+      //             sum+=arr[k][j];
+      //           }
+      //           if(max<sum){
+      //             max=sum;
+      //           }
+      //           sum=0;
+      //         return max;
+      //     }
+      // }
+
+      //     const findCrossSum = function(n, arr){
+      //       // 대각선 합 구하기
+      //        let max = 0;
+      //        let leftSum = 0;
+      //        let rightSum = 0;
+      //        // 1. 왼쪽 대각선의 합 구하기
+      //        for(let j=0;j<n;j++){
+      //           leftSum+=arr[j][j];
+      //        }
+
+      //        // 2. 오른쪽 대각선 합 구하기
+      //        for(let k=0;k<n;k++){
+      //           rightSum+=arr[k][n-1-k];
+      //        }
+
+      //        return (leftSum>rightSum)?leftSum:rightSum;
+      //     }
+
+      //     const findMaxSum = function(n, arr){
+      //        let answer = 0;
+      //        const rowSum = findRowSum(n, arr);
+      //        const colSum = findColSum(n, arr);
+      //        const crossSum = findCrossSum(n, arr);
+
+      //        answer = Math.max(rowSum, colSum, crossSum);
+
+      //        console.log(answer);
+      //     }
+
+      const findMaxSum = function (n, arr) {
+        let answer = 0;
+        let sum1;
+        let sum2;
+        // 1. 가로 세로 max 값 구하기
+        for (let i = 0; i < n; i++) {
+          sum1 = sum2 = 0;
+          for (let j = 0; j < n; j++) {
+            sum1 += arr[i][j];
+            sum2 += arr[j][i];
+          }
+          answer = Math.max(answer, sum1, sum2);
+        }
+
+        // 2. 대각선 max 구하기
+
+        for (let i = 0; i < n; i++) {
+          sum1 = sum2 = 0;
+          for (let j = 0; j < n; j++) {
+            sum1 += arr[j][j];
+            sum2 += arr[j][n - j - 1];
+          }
+          answer = Math.max(answer, sum1, sum2);
+        }
+
+        console.log(answer);
+      };
+
+      const inputArr = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ];
+      findMaxSum(5, inputArr);
+    </script>
+  </body>
+</html>
